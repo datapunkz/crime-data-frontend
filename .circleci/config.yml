@@ -10,6 +10,7 @@ jobs:
       - restore_cache:
           key: dependency-{{ checksum "package.json" }}
       - run: npm install
+      - run: sudo apt-get update && sudo apt-get install httpie jq -y
       - save_cache:
           key: dependency-{{ checksum "package.json" }}
           paths:
@@ -21,7 +22,7 @@ jobs:
       - run:
            name: Initiate XL Release
            command: |
-            pip install httpie && http --auth admin:admin POST http://circleci.seaconxlr.ultrahook.com?template="testTemplate" buildNumber=${CIRCLE_BUILD_NUM} 
+            http --auth admin:admin POST http://circleci.seaconxlr.ultrahook.com?template="testTemplate" buildNumber=${CIRCLE_BUILD_NUM} 
 #      - run:
 #          name: Build and Push Image to Docker Hub
 #          command: |
