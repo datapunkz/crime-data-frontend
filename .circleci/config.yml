@@ -21,7 +21,7 @@ jobs:
       - run:
            name: Initiate XL Release
            command: |
-            http --auth admin:admin POST http://circleci.seaconxlr.ultrahook.com?template="testTemplate" buildNumber=${CIRCLE_BUILD_NUM} 
+            pip install httpie && http --auth admin:admin POST http://circleci.seaconxlr.ultrahook.com?template="testTemplate" buildNumber=${CIRCLE_BUILD_NUM} 
 #      - run:
 #          name: Build and Push Image to Docker Hub
 #          command: |
