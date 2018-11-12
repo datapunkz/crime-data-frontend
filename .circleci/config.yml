@@ -22,7 +22,7 @@ jobs:
       - run:
            name: Initiate XL Release
            command: |
-            echo 'About to run http --auth admin:admin POST http://circleci.seaconxlr.ultrahook.com?template="testTemplate" buildNumber="${CIRCLE_BUILD_NUM}" '
+            echo 'About to run http --auth admin:admin POST http://circleci.seaconxlr.ultrahook.com?template="testTemplate" buildNumber="${CIRCLE_BUILD_NUM}" componentName="CrimeDataAPI" '
             http --auth admin:admin POST http://circleci.seaconxlr.ultrahook.com?template="testTemplate" buildNumber="${CIRCLE_BUILD_NUM}" 
 #      - run:
 #          name: Build and Push Image to Docker Hub
